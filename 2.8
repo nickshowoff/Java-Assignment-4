@@ -1,0 +1,31 @@
+*2.8 (Current time) Listing 2.6, ShowCurrentTime.java, gives a program that displays
+the current time in GMT. Revise the program so that it prompts the user to enter
+the time zone offset to GMT and displays the time in the specified time zone. Here
+is a sample run:
+Enter the time zone offset to GMT:
+The current time is 4:50:34
+
+import java.util.Scanner;
+
+public class java { 
+  public static void main(String[] args){ 
+  Scanner input = new Scanner(System.in);
+  System.out.print("Enter the time zone offset to GMT:");
+  int TimeZone = input.nextInt(); 
+  long totalMilliseconds = System.currentTimeMillis();
+  long totalSeconds = totalMilliseconds / 1000;
+  long currentSeconds = totalSeconds % 60;
+  long totalMinutes = totalSeconds / 60;
+  long currentMinutes = totalMinutes % 60;
+  long totalHours = totalMinutes / 60;
+  long currentHours = totalHours % 24 + TimeZone + 1;
+  if (currentHours >= 24) {
+   currentHours = currentHours - 24;
+} else if (currentHours < 0) {
+   currentHours = currentHours + 24;
+}
+  
+  System.out.println("The current time is " + currentHours + " : " + currentMinutes + " : " + currentSeconds);    
+
+ } 
+}
