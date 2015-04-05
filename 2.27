@@ -1,0 +1,37 @@
+*2.27 (Financial application: payroll) Rewrite Exercise 2.25 using GUI input and
+output dialog boxes.
+
+import javax.swing.JOptionPane;
+
+public class java { 
+  public static void main(String[] args){ 
+  String name = JOptionPane.showInputDialog("Enter employee's name:");  
+  String hoursString = JOptionPane.showInputDialog("Enter number of hours worked in a week:");
+  double hours = Double.parseDouble(hoursString);
+  String hourlyRateString = JOptionPane.showInputDialog("Enter hourly pay rate:");
+  double hourlyRate = Double.parseDouble(hourlyRateString);
+  String federalRateString = JOptionPane.showInputDialog("Enter federal tax withholding rate:");
+  double federalRate = Double.parseDouble(federalRateString);
+  String stateRateString = JOptionPane.showInputDialog("Enter state tax withholding rate:");
+  double stateRate = Double.parseDouble(stateRateString);  
+  
+  double GrossPay = hours * hourlyRate;  
+  double federalWithholding = GrossPay * federalRate;
+  double stateWithholding = GrossPay * stateRate;
+  double deduction = federalWithholding + stateWithholding;
+  double NetPay = GrossPay - deduction;
+
+  String output = "Employee Name: " + name + "\n" +
+    "Hours Worked: " + hours + "\n" +
+    "Pay Rate: $" + hourlyRate + "\n" +
+    "Gross Pay: $" + GrossPay + "\n" +
+    "Deductions: " + "\n" +
+    "\t" + "Federal Withholding (" + federalRate*100 + "%): $" + federalWithholding + "\n" +
+    "\t" + "State Withholding (" +  stateRate*100 + "%): $" + stateWithholding + "\n" +
+    "\t" + "Total Deduction: $" + deduction + "\n" +
+    "Net Pay: $" + NetPay;
+  JOptionPane.showMessageDialog(null,output);
+ 
+
+ } 
+}
