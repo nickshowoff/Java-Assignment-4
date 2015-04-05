@@ -1,0 +1,16 @@
+2.22 (Random character) Write a program that displays a random uppercase letter
+using the System.CurrentTimeMillis() method.
+
+import java.util.Scanner;
+
+public class java { 
+  public static void main(String[] args){ 
+  long totalMilliSeconds = System.currentTimeMillis();
+  long randomNumber = totalMilliSeconds % 100;
+  char ch = (char) randomNumber;
+
+
+  System.out.println("Random Character is " + ch);    
+
+ } 
+}
